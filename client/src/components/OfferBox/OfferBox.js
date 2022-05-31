@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Rating from 'react-rating';
 import { withRouter } from 'react-router-dom';
 import isEqual from 'lodash/isEqual';
@@ -10,7 +11,6 @@ import {
   clearChangeMarkError,
   goToExpandedDialog,
   changeShowImage,
-  changeModalShow,
 } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.sass';
@@ -18,8 +18,18 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import './confirmStyle.css';
 
 const OfferBox = (props) => {
+  const { id, role } = useSelector(state => state.userStore.data);
+  const { messagesPreview } = useSelector(state => state.chatStore);
+  const dispatch = useDispatch();
+
+  const actions = bindActionCreators({
+    changeMark,
+    clearChangeMarkError,
+    goToExpandedDialog,
+    changeShowImage,
+  }, dispatch);
+
   const findConversationInfo = () => {
-    const { messagesPreview, id } = props;
     const participants = [id, props.data.User.id];
     participants.sort((participant1, participant2) => participant1 - participant2);
     for (let i = 0; i < messagesPreview.length; i++) {
@@ -67,9 +77,9 @@ const OfferBox = (props) => {
     });
   };
 
-  const changeMark = (value) => {
-    props.clearError();
-    props.changeMark({
+  const changeMarkClick = (value) => {
+    actions.clearError();
+    actions.changeMark({
       mark: value,
       offerId: props.data.id,
       isFirst: !props.data.mark,
@@ -88,11 +98,11 @@ const OfferBox = (props) => {
   };
 
   const goChat = () => {
-    props.goToExpandedDialog({ interlocutor: props.data.User, conversationData: findConversationInfo() });
+    actions.goToExpandedDialog({ interlocutor: props.data.User, conversationData: findConversationInfo() });
   };
 
   const {
-    data, role, id, contestType,
+    data, contestType,
   } = props;
   console.log(props);
   const {
@@ -135,7 +145,7 @@ const OfferBox = (props) => {
                         contestType === CONSTANTS.LOGO_CONTEST
                           ? (
                             <img
-                              onClick={() => props.changeShowImage({ imagePath: data.fileName, isShowOnFull: true })}
+                              onClick={() => actions.changeShowImage({ imagePath: data.fileName, isShowOnFull: true })}
                               className={styles.responseLogo}
                               src={`${CONSTANTS.publicURL}${data.fileName}`}
                               alt="logo"
@@ -149,7 +159,7 @@ const OfferBox = (props) => {
             fullSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
             placeholderSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
             emptySymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star-outline.png`} alt="star" />}
-            onClick={changeMark}
+            onClick={changeMarkClick}
             placeholderRating={data.mark}
           />
           )}
@@ -166,20 +176,4 @@ const OfferBox = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  changeMark: (data) => dispatch(changeMark(data)),
-  clearError: () => dispatch(clearChangeMarkError()),
-  goToExpandedDialog: (data) => dispatch(goToExpandedDialog(data)),
-  changeShowImage: (data) => dispatch(changeShowImage(data)),
-});
-
-const mapStateToProps = (state) => {
-  const { changeMarkError, isShowModal } = state.contestByIdStore;
-  const { id, role } = state.userStore.data;
-  const { messagesPreview } = state.chatStore;
-  return {
-    changeMarkError, id, role, messagesPreview, isShowModal,
-  };
-};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OfferBox));
+export default withRouter(OfferBox);
