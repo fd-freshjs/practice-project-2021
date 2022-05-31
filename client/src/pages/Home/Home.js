@@ -134,6 +134,38 @@ const Home = (props) => {
                 </div>
               </div>
             </div>
+            <div className={styles.container__description}>
+              <h2 className={styles.blueUnderline}>Agency Level Experience</h2>
+              <div className={styles.cardContainer}>
+                <div className={styles.card}>
+                  <img src={`${CONSTANTS.STATIC_IMAGES_PATH}managed-contests.jpg`} alt="globe" />
+                  <h3>Managed Contests</h3>
+                  <p>
+                    Combine the power of crowdsourcing with the rich experience of our branding consultants. Get a complete agency-level experience. <a href="https://www.squadhelp.com/managed-contests">Learn More</a>.
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <img
+                    src={`${CONSTANTS.STATIC_IMAGES_PATH}audience-testing.jpg`}
+                    alt="desktop"
+                  />
+                  <h3>Audience Testing</h3>
+                  <p>
+                    Get unbiased feedback from real people to choose your most important brand elements with confidence! <a href="https://www.squadhelp.com/brand-name-testing">Learn More</a>.
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <img
+                    src={`${CONSTANTS.STATIC_IMAGES_PATH}trademark-support.jpg`}
+                    alt="cards"
+                  />
+                  <h3>Trademark Support</h3>
+                  <p>
+                    Work with our team of experienced licensed trademark attorneys to protect your name, tagline, and logo with the USPTO. <a href="https://helpdesk.squadhelp.com/squadhelp-services/trademark-filing-package">Learn More</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
             <h2>How Do Name Contest Work?</h2>
             <div className={styles.whiteContainer}>
               <div className={styles.stepReverse}>
