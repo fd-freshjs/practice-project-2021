@@ -108,7 +108,9 @@ module.exports.getContestById = async (req, res, next) => {
     await Promise.all(
       contestInfo.Offers.map(async (v, i) => {
         const user = await dbClient.Users.findByPk(v.userId);
+        const rating = await dbClient.Ratings.findOne({ where: { userId: req.tokenData.userId } });
         contestInfo.Offers[i].User = user;
+        contestInfo.Offers[i].mark = rating.mark;
       }),
     );
     res.send(contestInfo);
