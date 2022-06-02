@@ -1,0 +1,96 @@
+[
+    {
+        "name": "Bronze",
+        "description": "Branding on a budget",
+        "price": 299,
+        "color": "#e0b48d",
+        "infolist": [
+            {
+                "type": "prize",
+                "value": 135
+            },
+            {
+                "type": "servAndUpd",
+                "value": 39,
+                "features": [
+                    "Matching .com URL"
+                ]
+            },
+            {
+                "type": "expected",
+                "value": 300
+            }
+        ]
+    },
+    {
+        "name": "Gold",
+        "description": "Increase participation and basic brand validation",
+        "price": 449,
+        "color": "#e8b954",
+        "infolist": [
+            {
+                "type": "prize",
+                "value": 200
+            },
+            {
+                "type": "servAndUpd",
+                "value": 305,
+                "features": [
+                    "Matching .com URL",
+                    "Instant Trademark Check (One Database)",
+                    "NDA and More Privacy",
+                    "Project Promotion (Basic)",
+                    "Comprehensive Trademark Research"
+                ]
+            },
+            {
+                "type": "expected",
+                "value": 600
+            },
+            {
+                "type": "refund"
+            }
+        ]
+    },
+    {
+        "name": "Platinum",
+        "description": "Work with top-level creatives, plus agency-style brand validation",
+        "price": 749,
+        "color": "#555555",
+        "infolist": [
+            {
+                "type": "prize",
+                "value": 300
+            },
+            {
+                "type": "servAndUpd",
+                "value": 979,
+                "features": [
+                    "Audience Testing (Up to 6 Names)",
+                    "Comprehensive Trademark Research (3 Names)",
+                    "Linguistics Analysis (3 Names)",
+                    "Tier A Creatives",
+                    "Matching .com URL",
+                    "Instant Trademark Check (4 Databases)",
+                    "NDA and More Privacy",
+                    "Enhanced Project Promotion",
+                    "Team Collaboration Tools"
+                ]
+            },
+            {
+                "type": "expected",
+                "value": 1000
+            },
+            {
+                "type": "refund"
+            }
+        ]
+    },
+    {
+        "name": "Managed",
+        "color": "#28d2d0",
+        "price": 1499,
+        "description": "A full agency experience without the agency price tag",
+        "text": "Receive optimum results from your Platinum Contest by launching a Managed Contest Package and working one-on-one with an experienced Squadhelp Branding Consultant. With significantly more validation services, professional brief creation, and daily management of your contest by your Branding Expert, you'll receive an enhanced branding experience to closeout your branding project. Learn More about Managed Contest Service"
+    }
+]

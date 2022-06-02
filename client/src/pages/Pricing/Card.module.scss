@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+
+.page {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 1400px;
+
+    column-gap: 30px;
+    padding: 0px 15px;
+
+    .cardWrapper {
+        flex: 1;
+    }
+
+    .priceCard {
+        display: flex;
+        flex-flow: column nowrap;
+
+        align-items: flex-start;
+        
+        font-family: Raleway, sans-serif;
+
+        cursor: pointer;
+        &:hover .square {
+            box-shadow: 0 10px 10px #6f6f6f;
+        }
+
+        .square {
+            display: flex;
+            flex-flow: column nowrap;
+            box-sizing: border-box;
+            width: 100%;
+            aspect-ratio: 1/1;
+
+            border: 8px solid;
+            padding: 15px;
+            padding-bottom: 60px;
+            margin-bottom: 15px;
+
+            position: relative;
+
+            div:nth-child(1) {
+                font-weight: 800;
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            div:nth-child(2) {
+                color: #666666;
+                line-height: 1.5em;
+            }
+
+            div:nth-child(3) {
+                font-weight: 500;
+                font-size: 2em;
+
+                position: absolute;
+                bottom: 20px;
+                right: 15px;
+
+                span {
+                    display: inline-block;
+                    position: relative;
+                    top: 5px;
+                }
+            }
+        }
+
+        .infoItem {
+            padding: 13px 0;
+
+            .featureList {
+                padding-left: 20px;
+                padding-top: 13px;
+
+                li {
+                    font-size: 13px;
+                    padding: 10px 0;
+                }
+            }
+        }
+
+        .infoItem + .infoItem {
+            border-top: 2px solid #ddd;
+        }
+
+        .text {
+            margin-bottom: 13px;
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            text-decoration: none;
+            border: none;
+            padding: 7px 0px;
+            color: whitesmoke;
+            border-radius: 5px;
+            font-size: 17px;
+            font-weight: 700;
+        }
+    }
+}
+
